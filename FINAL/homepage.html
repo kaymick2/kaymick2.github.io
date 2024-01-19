@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ass eatah</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+
+<body style="font-family: 'Barlow Semi Condensed', sans-serif;">
+    <h1 class="text-center" style="font-size: 125.88px;padding: 0px;text-shadow: 7px 9px 10px;">price&nbsp;&nbsp;</h1>
+    <h1 style="text-align: center;font-size: 100.88px;margin: -50px;padding: -50px;height: 126.25px;text-shadow: 7px 5px 7px;color: var(--bs-green);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;it!</h1><div class="container square-box d-flex justify-content-center align-items-center">
+    <div class="card">
+      <div class="card-body" style="height: 20rem; width: 24rem; margin-top:0rem">
+        <div class="col d-flex justify-content-center">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
+            How to Play
+          </button>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+
+          <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#listmodal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-heart-fill" viewBox="0 0 16 16">
+              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"></path>
+            </svg>
+            List of Saved Items
+          </button>
+          <div class="modal fade" id="listmodal" tabindex="-1" role="dialog" aria-labelledby="listmodal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-black" id="exampleModalLongTitle">Saved Items</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body text-black" style="overflow-y: auto;">
+                  <h4>Wishlist Items</h4>
+                  <div id="wishlist-items"></div>
+                </div>
+                <div class="modal-footer">
+                  <div class="col d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <hr>
+
+        <!-- Pick a Category - Select-->
+
+        <h4 class="text-center">Pick a Category</h4>
+        <select class="form-select text-center" aria-label="Default select example">
+          <option selected="">Categories</option>
+        </select>
+
+        <br>
+
+        <!-- Play Button-->
+        <div class="col d-flex justify-content-center">
+          <a href="gamepage.html"> <button type="button" class="btn btn-success btn-lg button"> PLAY </button></a>
+        </div>
+
+
+
+      </div> <!-- Card Body End-->
+    </div> <!-- Card End-->
+  </div>
+  <!--Big Box End -->
+
+  <!-- How to Help - Modal Function -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-black" id="exampleModalLongTitle">How to Play</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body text-black">
+          <h4>Before clicking play, you must pick a category.</h4>
+          <h6>The items you will be guessing the price of will be drawn from the category you chose.</h6>
+          <h6> Your guess must be within $5 of the price to earn a point.</h6>
+          <h6>You will have 3 changes to guess the price of the item or else Game Over!</h6>
+          <h6>If an item looks interesting to you, you can save the item! </h6>
+          <h6>To save the item click on the heart icon.</h6>
+          <h6>The item will then be saved to a list.</h6>
+          <h6>If you want to play from another category, click the "Home" button. </h6>
+          <h6>Your progress WILL NOT be saved.</h6>
+          <h6> Your saved items WILL be saved. </h6>
+        </div>
+        <div class="modal-footer">
+          <div class="col d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      // Make a GET request for the CSV file
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://jphsucks.bravehost.com/wp-content/uploads/2023/04/data.csv', true);
+
+      xhr.onreadystatechange = function () {
+
+        if (xhr.readyState === 4 && xhr.status === 200) {
+
+          // Parse the CSV data using Papa Parse
+          var csvData = xhr.responseText;
+          var parsedData = Papa.parse(csvData).data;
+          // Get a list of all categories
+          var categories = [];
+          for (var i = 0; i < parsedData.length; i++) {
+            var category = parsedData[i][0];
+            if (categories.indexOf(category) === -1) {
+              categories.push(category);
+            }
+          }
+          categories.splice(0, 1);
+
+          // Add the categories to the select dropdown
+          var select = $('.form-select');
+          for (var i = 0; i < categories.length; i++) {
+            var option = $('<option></option>');
+            option.attr('value', i + 1);
+            option.text(categories[i]);
+            select.append(option);
+          }
+
+          select.on('change', function () {
+            var categoryIndex = select.val();
+            var products = [];
+
+            // Find all products in the selected category
+            for (var i = 0; i < parsedData.length; i++) {
+              if (parsedData[i][0] === categories[categoryIndex - 1]) {
+                products.push(parsedData[i]);
+  
+              }
+            }
+
+            // Select a random product from the list
+            var randomIndex = Math.floor(Math.random() * products.length);
+            var randomProduct = products[randomIndex];
+            var productJson = JSON.stringify(randomProduct);
+            localStorage.setItem("product", productJson);
+
+          })
+        }
+      };
+      xhr.send();
+    });
+
+
+  </script>
+
+  <script>
+    // Retrieve wishlist items from localStorage
+    var wishlistJson = localStorage.getItem("wishlist");
+    var wishlist = JSON.parse(wishlistJson);
+
+    // Iterate through each item and add it to the wishlist-items ul
+    wishlist.forEach(function (item) {
+      // Create a li element for the item
+      var li = $("<li>").appendTo("#wishlist-items");
+
+      // Create an img element for the item image
+      $("<img>").attr("src", item[4]).appendTo(li);
+
+      // Create a span element for the item name
+      $("<span>").text(item[2]).appendTo(li);
+
+      // Create a span element for the item price
+      $("<span>").text(item[3]).appendTo(li);
+
+        // Create a 'dislike' button to remove item from wishlist
+      $("<button type = 'button' class='btn btn-danger' id = 'removeWishlist'>Remove Item</button>").appendTo(li);
+
+    });
+  </script>
+
+<script>
+  //Remove item from wishlist
+  $("#removeWishlist").click(function()
+  {
+    // Get existing wishlist items from local storage
+    var wishlistJson = localStorage.getItem("wishlist");
+    var wishlist = JSON.parse(wishlistJson) || [];
+
+    console.log(wishlist);
+
+    // remove product from wishlist
+    wishlist.splice(this, 1);
+
+    // Save updated wishlist to local storage
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+    localStorage.getItem("wishlist")
+    // Show success message
+    alert("Product removed from wishlist!");
+  })
+</script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
