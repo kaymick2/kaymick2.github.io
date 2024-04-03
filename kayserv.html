@@ -3,8 +3,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/styles.css" />
 
+
     <meta charset="utf-8" />
-    <title>Welcome to the 90s!</title>
+    <title>Welcome to the 90s!</title>-
     <h1>Welcome to the 90's!</h1>
     <h3>
       <div class="topnav">
@@ -20,28 +21,55 @@
     </h3>
 
     <h2 style="text-align: center">
-      Some of the stuff I've done is listed here.
+      <i>THE SERVER</i>
     </h2>
   </head>
 
   <body>
-    <h4>Here is some stuff I have done:</h4>
-    <ul>
-      <li><a href="assets/OSU_SKINS.pdf">every osu skin i've ever made</a></li>
-      <li>video editing (sometimes)</li>
-      <li>
-        <a href="https://soundcloud.com/nissanaltima/tracks"
-          >terrible mashups and obscure mp3s</a
-        >
-      </li>
-      <li><a href="FINAL/homepage.html"> price-it game (school project)</a></li>
-      <li><i>the server</i></li>
-      <li>
-        <a href="https://mega.nz/folder/f49AjIBC#hociwbfKGAReJU_2dWBkkA"
-          >Sets</a
-        >
-      </li>
-    </ul>
+    <h4 style="text-align: center;">"THE SERVER" is an HP ProLiant DL380 Gen9 that was destined for the dumpster at a company.</h4>
+    <div style="line-height: 2;">
+       <ul>
+    <li>I was in the right place at the right time and saved it from said dumpster.</li>
+    <li>It is currently hosting about 4TB of backups, system images, and Linux ISOs. It has 10TB of storage, with a mass SSD upgrade in the works.</li>
+    <li>The server is running in RAID5 with a dead storage cache battery.</li>
+    <li>I have installed VMWare ESXi 7 on it and it is configured to be almost completely headless.</li>
+    <li>I have used it to teach myself the basics of server grade hardware and software, including setting up Active Directory, a VPN, NAS, Virtual machines, and networking (Cisco switches on the way!).</li>
+    <li>I have also played around with Ubuntu Server, and am currently teaching myself how to deploy a LAMP stack.</li>
+</ul>
+
+
+    
+    </div>
+</p>
+<div class="center">
+    <h3>
+To top it all off, this server sits on a block of plywood in a college apartment, with 2 drives missing because I couldn't afford spares when I got it.<br>
+It is the epitome of jankiness, and I guard it with my life.
+</h3>
+<div class="slideshow">
+    <button class='btn' id="previousBtn">Previous</button>
+    <img id="image" src="assets/serverimg/server drives.JPG">
+    <button class='btn' id="nextBtn">Next</button>
+  </div>
+
+  <script>
+    const images = ['assets/serverimg/server drives.JPG', 'assets/serverimg/server2.JPG', 'assets/serverimg/software raid bad.JPG','assets/serverimg/working on server.JPG'];
+    let currentIndex = 0;
+
+    const previousBtn = document.getElementById('previousBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const image = document.getElementById('image');
+
+    previousBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      image.src = images[currentIndex];
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      image.src = images[currentIndex];
+    });
+  </script>
   </body>
   <footer>
     <hr />
