@@ -23,6 +23,12 @@
   -webkit-box-shadow: 10px 10px 5px #ccc;
   -khtml-box-shadow: 10px 10px 5px #ccc;
 }
+.center-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
 @font-face {
   font-family: ChicagoFLF;
   src: url(ChicagoFLF.ttf);
@@ -64,7 +70,7 @@ body {
 }
 .warningHeader{
   text-align: center;
-  color:teal;
+  color:rgb(0, 255, 255);
   text-shadow: 2px 2px black;
 }
 .center{
