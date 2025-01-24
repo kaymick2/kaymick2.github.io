@@ -1,53 +1,46 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <link rel="icon" href="assets/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/styles.css" />
-
     <meta charset="utf-8" />
     <title>Welcome to the 90s!</title>
-    <h1>Kyle McDowell, IT Consultant/Developer </h1>
+    <script src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <h1>Kyle McDowell, IT Consultant/Developer</h1>
     <h3>
-      <div class="topnav">
-        <a class="active" href="index.html">Home/About</a>
-        |
-        <a href="projects.html">Projects</a>
-        |
-        <a href="contact.html">Contact</a>
-        |
-        <a href="https://kaymick.net/assets/resume.pdf">Resume (PDF)</a>
-      </div>
-      <hr />
+      <include-html src="components/navbar.html"></include-html>
     </h3>
-
     <h2 style="text-align: center">
       Hi! I'm Kyle<sup style="font-size: 15px">(they/them)</sup>. I'm an IT Support Analyst and Consultant by trade. One day, I
       felt like making a website. This is that website.
     </h2>
-  </head>
 
-  <body>
-    I know a little bit about a lot of things, including but not limited to:
-    <ul>
-      <li>Computers, such as <a href="kayserv.html">THE SERVER</a></li>
-      <li>Gasoline powered things- I own two cars and a small moped. I do my own maintenance on all of them.</li>
-      <li><a href="sets.html">Music</a></li>
-      <li>Rhythm games</li>
-      <div class="center">You can read more about the stuff I do and have done on my <a href="projects.html">Projects page.</a></div>
-    </ul>
-    <div style="text-align: center">
-      Most of my trade skills are in IT, especially in end-user support. I have
-      experience with Active Directory, anything Microsoft 365, CMDB,
-      <br />Linux (especially Ubuntu, Kali, AMAHI (Terrible
-      "turn-any-computer-into-NAS" OS), and Fedora) Cherwell Service Management,
-      and HappyFox.
+    <div>
+      I know a little bit about a lot of things, including but not limited to:
+      <ul>
+        <li>Computers, such as <a href="kayserv.html">THE SERVER</a></li>
+        <li>Gasoline powered things- I own two cars and a small moped. I do my own maintenance on all of them.</li>
+        <li><a href="sets.html">Music</a></li>
+        <li>Rhythm games</li>
+        <div class="center">You can read more about the stuff I do and have done on my <a href="projects.html">Projects page.</a></div>
+      </ul>
+      <div style="text-align: center">
+        Most of my trade skills are in IT, especially in end-user support. I have
+        experience with Active Directory, anything Microsoft 365, CMDB,
+        <br />Linux (especially Ubuntu, Kali, AMAHI (Terrible
+        "turn-any-computer-into-NAS" OS), and Fedora) Cherwell Service Management,
+        and HappyFox.
+      </div>
     </div>
   </body>
   <footer>
     <hr />
     <div class="footer-center">
-      <span
-        ><img src="assets/css.gif" class="center" />
+      <span>
+        <img src="assets/css.gif" class="center" />
         <img src="assets/gimp.gif" />
         <img src="assets/gh-pages-bo.gif" />
         <img src="assets/fedora.gif" />
@@ -56,8 +49,7 @@
         <img src="assets/web3no.gif" />
       </span>
     </div>
-    <script src="assets/oneko/oneko.js">
-      <div id="oneko" style="width: 32px; height: 32px; position: fixed; pointer-events: none; background-image: url(&quot;assets/oneko/oneko.gif&quot;); image-rendering: pixelated; left: 1304.05px; top: 179.765px; background-position: -96px -96px;"></div>
-    </script>
+    <script src="assets/oneko/oneko.js"></script>
   </footer>
 </html>
+
