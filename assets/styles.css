@@ -1,5 +1,7 @@
 .blogtext {
-  padding-left: 20px;
+  padding: 15px 20px;
+  margin-bottom: 1.5em;
+  line-height: 1.8;
 }
 ::selection {
   background: #e73399;
@@ -56,8 +58,26 @@
 .topnav {
   text-align: center;
 }
-h1 {
+h1, h2, h3, h4, h5, h6 {
   text-align: center;
+  margin: 1.5em 0 1em;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.75em;
+}
+
+h4 {
+  font-size: 1.5em;
 }
 /*
       Figma Background for illustrative/preview purposes only.
@@ -67,14 +87,35 @@ body {
   background: #f6e0f9;
   font-family: ChicagoFLF;
   src: url(assets/ChicagoFLF.ttf);
+  line-height: 1.6;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 .warningHeader{
   text-align: center;
   color:rgb(0, 255, 255);
   text-shadow: 2px 2px black;
 }
-.center{
+.center {
   text-align: center;
+  margin: 1em 0;
+}
+
+ul, ol {
+  padding-left: 2em;
+  margin: 1em 0;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin: 1em 0;
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
 }
  /* Container for the images */
   .image-container {
