@@ -1,5 +1,48 @@
 .blogtext {
   padding-left: 20px;
+  line-height: 1.6;
+  margin-bottom: 1.2em;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-content {
+  line-height: 1.6;
+  margin-bottom: 1em;
+  font-size: 16px;
+}
+
+.text-content ul, .text-content ol {
+  margin-left: 20px;
+  margin-bottom: 1em;
+  .text-content ul {
+    list-style-type: disc;
+    padding-left: 2em;
+    margin: 1.5em 0;
+  }
+  
+  .text-content li {
+    margin-bottom: 1em;
+    line-height: 1.4;
+  }
+  
+  .text-content li i {
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  .text-content h4 {
+    margin: 1.5em 0 1em;
+    color: #333;
+    font-size: 1.2em;
+  }
+}
+.text-content p {
+  margin-bottom: 1.2em;
 }
 ::selection {
   background: #e73399;
