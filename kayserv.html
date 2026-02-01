@@ -5,7 +5,7 @@
     <link rel="icon" href="assets/favicon.png">
     <meta charset="utf-8" />
     <title>Welcome to the 90s!</title>
-    <h1>Kyle McDowell, IT Consultant/Developer </h1>
+    <h1><include-html src="components/titlecontent.html"></include-html> </h1>
     <h3>
       <include-html src="components/navbar.html"></include-html>
     </h3>
@@ -19,12 +19,22 @@
     <h4 style="text-align: center;">"THE SERVER" is an HP ProLiant DL380 Gen9 that was destined for the dumpster at a company.</h4>
     <div style="line-height: 2;">
        <ul>
-    <li>I was in the right place at the right time and saved it from said dumpster.</li>
-    <li>It is currently hosting about 4TB of backups, system images, and Linux ISOs. It has 10TB of storage, with a mass SSD upgrade in the works.</li>
-    <li>The server is running in RAID5 with a dead storage cache battery.</li>
-    <li>I have installed VMWare ESXi 7 on it and it is configured to be almost completely headless.</li>
-    <li>I have used it to teach myself the basics of server grade hardware and software, including setting up Active Directory, a VPN, NAS, Virtual machines, and networking (Cisco switches on the way!).</li>
-    <li>I have also played around with Ubuntu Server, and am currently teaching myself how to deploy a LAMP stack.</li>
+    <p style="text-align: center;">
+      I was in the right place at the right time and saved it from said dumpster.
+      It is currently hosting about 4TB of backups, system images, and Linux ISOs, with a total of 10TB of storage and a mass SSD upgrade in the works.
+      The server is running in RAID5 with two logical volumes.
+      I have installed VMWare ESXi 7 on it, and it is configured to be almost completely headless.
+      Through this project, I have taught myself the basics of server-grade hardware and software, including setting up Active Directory, a VPN, NAS, virtual machines, and networking.
+      But of course, that wasn't enough, so I kept adding things and eventually ordered a rack to get the server off the ground.
+      =
+      I recently built a PXE server just to say I could - I ended up having to install a second NIC in the PXE machine and run it off a Craigslist router running DD-WRT. It looks like a total mess (because it is), but it works.
+      On the top rack sits a 2015 Mac Mini running Ubuntu Server, which hosts my containerized Minecraft server, and a Raspberry Pi 4 as a lightweight entry point for my network over Tailscale.
+      You may notice the weird white fan behind the Mac Mini. That's the Raspberry Pi - when I deployed it in university, I was too poor to afford a PiHat, so I used a $5 USB fan. It still works, so I never got rid of it.
+      My server uses HPE iLO, but I don't keep it running as it uses 200W of power at idle, so the Raspberry Pi is used to remote into the network so I can turn on the server from iLO, usually to watch things from Plex.
+      I recently purchased a KVM for my PXE server and main server, as well as <a href="https://www.youtube.com/c/@bringusstudios" target="_blank" rel="noopener">Jon Bringus'</a> "Dirty Cherry Keyboard."
+      I also have a 3D Printer. it runs over USB to Cat5e extenders, and is a NewMatter MOD-T that I purchased from the back of a coworker's Jeep Wrangler for $40. It has saved me an amazing amount of money on mounting and storage solutions. 
+      Vertical images were shot on an iPhone 15 using Snapchat, and other images were shot on a Canon EOS 1200D, including a close-up of my face that I took while experimenting with a new camera lens and its broken AF motor.
+    </p>
 </ul>
 
 
@@ -33,33 +43,84 @@
 </p>
 <div class="center">
     <h3>
-To top it all off, this server sits on a block of plywood in a college apartment, with 2 drives missing because I couldn't afford spares when I got it.<br>
+When I recieved it, this server sat on a block of plywood in a college apartment, with 2 drives missing because I couldn't afford spares when I got it.<br>
 It is the epitome of jankiness, and I guard it with my life.
 
-I also have a Dell SAN from 2009. 
 </h3>
 <div class="slideshow">
-    <button class='btn' id="previousBtn">Previous</button>
-    <img id="image" src="assets/serverimg/server drives.JPG">
-    <button class='btn' id="nextBtn">Next</button>
+    <button class="btn slideshow-arrow" id="previousBtn" type="button" aria-label="Previous image">&#9664;</button>
+    <div class="slideshow-image-wrap">
+      <img id="image" alt="Server lab photo" style="display: none;">
+    </div>
+    <button class="btn slideshow-arrow" id="nextBtn" type="button" aria-label="Next image">&#9654;</button>
   </div>
+  <p id="slideshowStatus" style="text-align: center; font-style: italic;"></p>
 
   <script>
-    const images = ['assets/serverimg/server drives.JPG', 'assets/serverimg/server2.JPG', 'assets/serverimg/software raid bad.JPG','assets/serverimg/working on server.JPG'];
+    const IMAGE_FOLDER = 'assets/serverimg/';
+    const GITHUB_API_URL = 'https://api.github.com/repos/kaymick2/kaymick2.github.io/contents/' + IMAGE_FOLDER;
+    const IMAGE_EXT = /\.(jpg|jpeg|png|gif|webp)$/i;
+
+    let images = [];
     let currentIndex = 0;
 
     const previousBtn = document.getElementById('previousBtn');
     const nextBtn = document.getElementById('nextBtn');
     const image = document.getElementById('image');
+    const statusEl = document.getElementById('slideshowStatus');
 
-    previousBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      image.src = images[currentIndex];
-    });
+    function setImageSrc() {
+      if (images.length) {
+        image.src = images[currentIndex];
+        image.style.display = '';
+        statusEl.textContent = '';
+      }
+    }
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      image.src = images[currentIndex];
+    function updateButtons() {
+      previousBtn.disabled = images.length <= 1;
+      nextBtn.disabled = images.length <= 1;
+    }
+
+    fetch(GITHUB_API_URL)
+      .then(res => res.ok ? res.json() : Promise.reject(new Error('Could not load folder')))
+      .then(files => {
+        images = files
+          .filter(f => f.type === 'file' && IMAGE_EXT.test(f.name))
+          .map(f => IMAGE_FOLDER + encodeURIComponent(f.name))
+          .sort();
+        if (images.length) {
+          setImageSrc();
+          updateButtons();
+        } else {
+          statusEl.textContent = 'No images in ' + IMAGE_FOLDER + ' yet.';
+        }
+      })
+      .catch(() => {
+        statusEl.textContent = 'Could not load images. Add photos to ' + IMAGE_FOLDER + ' and push to GitHub.';
+      });
+
+    previousBtn.addEventListener('click', goPrev);
+
+    nextBtn.addEventListener('click', goNext);
+
+    function goPrev() {
+      if (images.length) {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        setImageSrc();
+      }
+    }
+    function goNext() {
+      if (images.length) {
+        currentIndex = (currentIndex + 1) % images.length;
+        setImageSrc();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (document.activeElement?.tagName === 'INPUT' || document.activeElement?.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
     });
   </script>
   </body>
